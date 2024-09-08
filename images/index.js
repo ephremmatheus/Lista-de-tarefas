@@ -9,7 +9,13 @@ function apagaInput(){
 }
 
 
-btnAdc.addEventListener('click', function(){
+inputBox.addEventListener('keydown', function(tecla){
+    if (tecla.key === 'Enter'){
+        adcItem();
+    }
+})
+
+function adcItem(){
     if (!inputBox.value){
         alert('Você precisa digitar algo.')
     }
@@ -26,8 +32,9 @@ btnAdc.addEventListener('click', function(){
         salvarInformacao()
     }
     
+}
 
-})
+btnAdc.addEventListener('click', adcItem)
 
 listContainer.addEventListener('click', function(e){
     if(e.target.tagName === 'LI'){
